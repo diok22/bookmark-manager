@@ -1,0 +1,12 @@
+<body>
+  <h2> Bookmark Manager </h2>
+    <h3> List of links: </h3>
+    <ul id ='links'>
+      <% @links.each do |link| %>
+      <li>
+        Title: <%= link.title %>
+        URL: <%= link.url %>
+      </li>
+      <% end %>
+    </ul>
+</body>
