@@ -113,10 +113,11 @@ PLATFORMS
 DEPENDENCIES
   capybara
   data_mapper
+  dm-migrations
   dm-postgres-adapter
   rspec
   rspec-sinatra
   sinatra
 
 BUNDLED WITH
-   1.13.2
+   1.13.3

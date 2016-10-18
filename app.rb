@@ -1,5 +1,5 @@
 require 'sinatra/base'
-
+require './app/models/link'
 class BookmarkManager < Sinatra::Base
   # include DataMapper::Resource
   # property :id,   Serial
