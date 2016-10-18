@@ -1,6 +1,12 @@
 require 'sinatra/base'
 
 class BookmarkManager < Sinatra::Base
+  # include DataMapper::Resource
+  # property :id,   Serial
+  # property :website, String
+  # property :link, String
+
+
   get '/' do
     erb :index
   end
