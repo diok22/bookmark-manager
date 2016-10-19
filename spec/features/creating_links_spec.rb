@@ -4,8 +4,9 @@ require '././app/models/link'
 RSpec.feature 'create_links', type: :feature do
   scenario "it adds the site's address and title to my bookmark manager" do
     visit '/links/new'
-    fill_in 'url',   with: 'http://www.goole.com'
+    fill_in 'url',   with: 'http://www.google.com'
     fill_in 'title', with: 'Google'
+    fill_in 'tags', with: 'search engine'
     click_button 'Save'
     expect(current_path).to eq '/links'
     within 'ul#links' do
