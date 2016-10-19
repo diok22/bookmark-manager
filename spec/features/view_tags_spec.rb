@@ -1,4 +1,5 @@
 require 'spec_helper'
+require '././app/models/link'
 
 RSpec.feature 'view tags', type: :feature do
   scenario 'can filter links via their tag' do
