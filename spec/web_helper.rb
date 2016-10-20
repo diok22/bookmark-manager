@@ -3,5 +3,5 @@ def sign_up
   expect(page.status_code).to eq 200
   fill_in :email, with: 'test@tester.com'
   fill_in :password, with: 'testpass'
-  click_button 'sign_up'
+  click_button 'Create account'
 end
