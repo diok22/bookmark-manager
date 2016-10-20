@@ -6,6 +6,7 @@ RSpec.feature 'add more than one tag', type: :feature do
     fill_in 'url', with: 'http://makersacademy.com'
     fill_in 'title', with: 'Makers Academy'
     #
+    # separate tags using space
     fill_in 'tags', with: 'education work'
     #
     click_button "Save"
