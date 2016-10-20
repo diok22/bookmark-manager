@@ -6,6 +6,7 @@ gem 'sinatra'
 gem 'dm-migrations'
 gem 'database_cleaner'
 gem 'rake'
+gem 'bcrypt'
 
 group :test do
   gem 'rspec'
