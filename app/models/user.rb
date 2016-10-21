@@ -14,15 +14,10 @@ class User
   attr_accessor :password_confirmation
   attr_reader :password
 
-  validates_confirmation_of :password
+  validates_confirmation_of :password, message: "Password mismatch"
 
   def password=(password)
     @password=password
     self.password_digest = BCrypt::Password.create(password)
   end
-
-  # def password_confirmation=(password)
-  #   @password_confirmation = BCrypt::Password.create(password)
-  # end
-
 end
