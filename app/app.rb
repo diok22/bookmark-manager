@@ -27,7 +27,7 @@ class BookmarkManager < Sinatra::Base
     redirect '/links'
   end
 
-  get '/tags/:name' do
+  get '/tags' do
     tag = Tag.first(name: params[:name])
     @links = tag ? tag.links : []
     erb :'links/index'
@@ -38,7 +38,7 @@ class BookmarkManager < Sinatra::Base
   end
 
   post '/users' do
-    user = User.create(email: params[:email], password: params[:password])
+    user = User.create(user_name: params[:user_name], email: params[:email], password: params[:password])
     session[:user_id] = user.id
     redirect '/links'
   end
