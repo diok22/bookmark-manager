@@ -1,11 +1,11 @@
 ENV["RACK_ENV"] ||= 'development'
 require 'sinatra/base'
-# require_relative 'models/link'
-# require_relative "models/tag"
+require 'sinatra/flash'
 require_relative 'data_mapper_setup'
 
 class BookmarkManager < Sinatra::Base
 
+  register Sinatra::Flash
   enable :sessions
   set :session_secret, 'super secret'
 
@@ -44,7 +44,8 @@ class BookmarkManager < Sinatra::Base
       @status = 'match'
       redirect '/links'
     else
-      redirect '/users/new'
+      flash.now[:notice] = 'Password and confirmation password do not match'
+      erb :'/users/new'
     end
   end
 

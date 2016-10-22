@@ -12,8 +12,14 @@ RSpec.feature 'password confirmation' do
     expect {click_button 'Create account'}.to change(User, :count).by(0)
   end
 
-  scenario 'with a password that does not match' do
-    expect { sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
+  scenario 'message to user for mismatch password' do
+    visit '/users/new'
+    fill_in :user_name, with: 'Tester'
+    fill_in :email, with: 'test@tester.com'
+    fill_in :password, with: 'testpass'
+    fill_in :password_confirmation, with: 'testpassed'
+    click_button 'Create account'
+
     expect(current_path).to eq('/users') # current_path is a helper provided by Capybara
     expect(page).to have_content 'Password and confirmation password do not match'
   end
