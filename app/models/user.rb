@@ -7,14 +7,15 @@ class User
   include DataMapper::Resource
 
   property :id, Serial
-  property :user_name, String
-  property :email, String
+  property :user_name, String, required: true, unique: true
+  property :email, String, required: true
   property :password_digest, Text
 
   attr_accessor :password_confirmation
   attr_reader :password
 
-  validates_confirmation_of :password, message: "Password mismatch"
+  validates_confirmation_of :password, message: 'Password and confirmation password do not match'
+  validates_presence_of :email, message: 'Email address is already registered'
 
   def password=(password)
     @password=password
