@@ -15,7 +15,7 @@ class BookmarkManager < Sinatra::Base
     erb :'links/index'
   end
 
-  get '/links/new' do
+  get '/links/new' do # save a new link
     erb :'link_new'
   end
 
@@ -28,13 +28,13 @@ class BookmarkManager < Sinatra::Base
     redirect '/links'
   end
 
-  get '/tags' do
+  get '/tags' do # filter via tags
     tag = Tag.first(name: params[:name])
     @links = tag ? tag.links : []
     erb :'links/index'
   end
 
-  get '/users/new' do
+  get '/users/new' do # sign up a new user
     erb :'users/new'
   end
 
@@ -50,13 +50,13 @@ class BookmarkManager < Sinatra::Base
     end
   end
 
-  get '/sessions/new' do
+  get '/sessions/new' do  #sign in
     erb :'sessions/new'
   end
 
   post '/sessions' do
   user = User.authenticate(params[:email], params[:password])
-    if user
+    if user # user will be signed in with correct credentials
       session[:user_id] = user.id
       redirect to('/links')
     else
@@ -65,7 +65,7 @@ class BookmarkManager < Sinatra::Base
     end
   end
 
-  delete '/sessions' do
+  delete '/sessions' do #sign out
     session[:user_id] = nil
     flash.keep[:notice] = "Goodbye!"
     redirect to '/links'
