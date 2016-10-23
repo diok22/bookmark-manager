@@ -9,9 +9,9 @@ RSpec.feature 'sign out', type: :feature do
 
   scenario "user can sign out while signed in" do
     sign_in(email: 'Dio@test.com', password: '123456')
-    click_botton 'Sign out'
-    expect(page).to have_content "Goodbye"
-    expect(page).not_to have_content "Succesful login, #{user.email}"
+    click_button 'Sign out'
+    expect(page).to have_content "Goodbye!"
+    expect(page).not_to have_content "Succesful login, Dio@test.com"
   end
 
 
