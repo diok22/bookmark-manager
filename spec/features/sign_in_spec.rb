@@ -16,6 +16,6 @@ RSpec.feature 'sign in', type: :feature do
     visit '/sessions/new'
     fill_in :email, with: email
     fill_in :password, with: password
-    click_button 'Sign_in'
+    click_button 'Sign in'
   end
 end
