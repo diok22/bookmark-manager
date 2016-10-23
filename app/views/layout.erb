@@ -6,7 +6,7 @@
 
   <body>
     <% if current_user %>
-      Succesful login, <%= current_user.user_name %>
+      Succesful login, <%= current_user.email %>
     <% end %>
     <% if flash[:notice] %>
       <div id='notice'><%= flash[:notice] %></div>
