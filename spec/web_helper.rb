@@ -6,3 +6,10 @@ def sign_up
   fill_in :password_confirmation, with: 'testpass1'
   click_button 'Create account'
 end
+
+def sign_in(email:,password:)
+  visit '/sessions/new'
+  fill_in :email, with: email
+  fill_in :password, with: password
+  click_button 'Sign in'
+end
